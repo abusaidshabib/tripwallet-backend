@@ -20,12 +20,12 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 async function run() {
   try {
-    const tourCollection = client.db('tripwallet').collection('alltours');
+    const tourCollection = client.db('tripwallet').collection('allTours');
 
 
     app.get('/tours', async (req, res) => {
       let query = {};
-      const userData = await carsCollection.find(query).toArray();
+      const userData = await tourCollection.find(query).toArray();
       res.send(userData);
     })
 
